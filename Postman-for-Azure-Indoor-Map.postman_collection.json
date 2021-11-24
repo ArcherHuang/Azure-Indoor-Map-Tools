@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "095e2407-b9d3-42e5-910b-d1fc8901f127",
+		"_postman_id": "1620921b-326a-4420-af2b-51fda922f398",
 		"name": "Postman-for-Azure-Indoor-Map",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -416,7 +416,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"styles\":[\n      {\n        \"keyname\": \"setAlarm\",\n        \"type\": \"string\",\n        \"rules\": [\n            {\n              \"alarm\": \"#FF0000\",\n              \"normal\": \"#00FF00\",\n              \"init\": \"#7DF9FF\",\n              \"no\": \"#d9e6f3\",\n              \"gray\": \"#E6E6E6\"\n            }\n        ]\n      }\n  ]\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId=DatasetID&subscription-key=InputKey",
@@ -461,10 +461,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"states\": [\n        {\n            \"keyName\": \"setAlarm\",\n            \"value\": \"no\",\n            \"eventTimestamp\": \"2021-07-22T10:05:59\"\n        }\n    ]\n}"
+					"raw": ""
 				},
 				"url": {
-					"raw": "https://us.atlas.microsoft.com/featurestatesets/StatesetID/featureStates/UNIT17?api-version=2.0&subscription-key=InputKey",
+					"raw": "https://us.atlas.microsoft.com/featurestatesets/StatesetID/featureStates/FeatureID?api-version=2.0&subscription-key=InputKey",
 					"protocol": "https",
 					"host": [
 						"us",
@@ -476,7 +476,7 @@
 						"featurestatesets",
 						"StatesetID",
 						"featureStates",
-						"UNIT17"
+						"FeatureID"
 					],
 					"query": [
 						{
