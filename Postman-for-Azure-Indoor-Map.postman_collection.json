@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "095e2407-b9d3-42e5-910b-d1fc8901f127",
+		"name": "Postman-for-Azure-Indoor-Map",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Upload a Drawing package",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": ""
+					}
+				},
+				"url": {
+					"raw": "https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"mapData",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "1.0"
+						},
+						{
+							"key": "dataFormat",
+							"value": "zip"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. 檢查繪圖套件上傳狀態",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/mapData/operations/OperationID?api-version=1.0&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"mapData",
+						"operations",
+						"OperationID"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "1.0"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. 取出繪圖套件中繼資料",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/mapData/metadata/UDID?api-version=1.0&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"mapData",
+						"metadata",
+						"UDID"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "1.0"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. 轉換繪圖套件",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/conversions?subscription-key=InputKey&api-version=2.0&udid=UDID&inputType=DWG&outputOntology=facility-2.0",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"conversions"
+					],
+					"query": [
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						},
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "udid",
+							"value": "UDID"
+						},
+						{
+							"key": "inputType",
+							"value": "DWG"
+						},
+						{
+							"key": "outputOntology",
+							"value": "facility-2.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. 檢查繪圖套件轉換狀態",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/conversions/operations/OperationID?api-version=2.0&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"conversions",
+						"operations",
+						"OperationID"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. 建立資料集",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId=ConversionID&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"datasets"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "conversionId",
+							"value": "ConversionID"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. 檢查資料集建立狀態",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/datasets/operations/OperationID?api-version=2.0&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"datasets",
+						"operations",
+						"OperationID"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. 建立圖格集",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID=DatasetID&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"tilesets"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "datasetID",
+							"value": "DatasetID"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. 檢查 tileset 建立狀態",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/tilesets/operations/OperationID?api-version=2.0&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"tilesets",
+						"operations",
+						"OperationID"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. 查詢資料集中的所有集合",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/wfs/datasets/DatasetID/collections?subscription-key=InputKey&api-version=2.0",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"wfs",
+						"datasets",
+						"DatasetID",
+						"collections"
+					],
+					"query": [
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						},
+						{
+							"key": "api-version",
+							"value": "2.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. 查詢資料集中的單位集合",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/wfs/datasets/DatasetID/collections/unit/items?subscription-key=InputKey&api-version=2.0",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"wfs",
+						"datasets",
+						"DatasetID",
+						"collections",
+						"unit",
+						"items"
+					],
+					"query": [
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						},
+						{
+							"key": "api-version",
+							"value": "2.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12. 建立功能狀態集",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"styles\":[\n      {\n        \"keyname\": \"setAlarm\",\n        \"type\": \"string\",\n        \"rules\": [\n            {\n              \"alarm\": \"#FF0000\",\n              \"normal\": \"#00FF00\",\n              \"init\": \"#7DF9FF\",\n              \"no\": \"#d9e6f3\",\n              \"gray\": \"#E6E6E6\"\n            }\n        ]\n      }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId=DatasetID&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"featurestatesets"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "datasetId",
+							"value": "DatasetID"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. 更新功能狀態",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"states\": [\n        {\n            \"keyName\": \"setAlarm\",\n            \"value\": \"no\",\n            \"eventTimestamp\": \"2021-07-22T10:05:59\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://us.atlas.microsoft.com/featurestatesets/StatesetID/featureStates/UNIT17?api-version=2.0&subscription-key=InputKey",
+					"protocol": "https",
+					"host": [
+						"us",
+						"atlas",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"featurestatesets",
+						"StatesetID",
+						"featureStates",
+						"UNIT17"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2.0"
+						},
+						{
+							"key": "subscription-key",
+							"value": "InputKey"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
