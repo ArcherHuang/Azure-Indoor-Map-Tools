@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+  <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+  
+  <!-- Add references to the Azure Maps Map Creator module JavaScript and CSS files. -->
+  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css"
+    type="text/css" />
+  <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+  <title>Azure Indoor Map</title>
+  <link rel=stylesheet type="text/css" href="style.css">
+  <script src="main.js"></script>
+</head>
+<body>
+  <div id="myMap" class="hidden"></div>
+  <div class="container" id="container">
+    <div class="card">
+      <h3>Map Info</h3>
+      <div class="form__div">
+        <input type="text" class="form__input" id="key" placeholder=" ">
+        <label for="" class="form__label">Key ( 必填 )</label>
+      </div>
+      <div class="form__div">
+        <input type="text" class="form__input" id="tilesetId" placeholder=" ">
+        <label for="" class="form__label">Tileset ID ( 必填 )</label>
+      </div>
+      <div class="form__div">
+        <input type="text" class="form__input" id="statesetId" placeholder=" ">
+        <label for="" class="form__label">Stateset ID ( 必填 )</label>
+      </div>
+      <div class="form__div">
+        <input type="number" class="form__input" id="latitude" placeholder=" " value="47.636152">
+        <label for="" class="form__label">Latitude ( 必填 )</label>
+      </div>
+      <div class="form__div">
+        <input type="number" class="form__input" id="longitude" placeholder=" " value="-122.132600">
+        <label for="" class="form__label">Longitude ( 必填 )</label>
+      </div>
+      <a href="#">
+        <button onclick="displayMap()">
+          顯示 Map
+        </button>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
