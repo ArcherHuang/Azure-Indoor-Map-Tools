@@ -23,7 +23,15 @@ function displayMap() {
       },
       zoom: 18,
     });
+
+    let popup = new atlas.Popup();
+
     map.events.add('ready', function () {
+
+      // Add popup windows
+      popup = new atlas.Popup({
+        position: [0, 0],
+      });
 
       // Add a map style selection control.
       map.controls.add(new atlas.control.StyleControl({ mapStyles: "all" }), { position: "top-right" });
@@ -52,6 +60,30 @@ function displayMap() {
       map.events.add('facilitychanged', indoorManager, (eventData) => {
         console.log('The facility has changed:', eventData);
       });
+
+      // Add click event
+      map.events.add('click', (e) => {
+        console.log(e);
+        const features = map.layers.getRenderedShapes(e.position, 'unit');
+        features.reduce((ids, feature) => {
+          if (Object.prototype.hasOwnProperty.call(feature.properties, 'featureType')) {
+            console.log(`FeatureID: ${feature.properties.featureId}`);
+            const html = ['<div style="padding:10px"><b>'];
+            if (feature.properties.featureId !== '') {
+              html.push(`Feature ID: ${feature.properties.featureId}`);
+            } else {
+              html.push('Feature ID: None');
+            }
+            html.push('</div>');
+            popup.setOptions({
+              content: html.join(''),
+              position: e.position,
+            });
+            popup.open(map);
+          }
+        }, []);
+      });
+      
     });
   }
 }
