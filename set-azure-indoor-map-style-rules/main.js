@@ -1,3 +1,5 @@
+toastr.options.positionClass = 'toast-top-full-width';
+toastr.options.timeOut = 5000;
 const baseUrl = 'https://us.atlas.microsoft.com';
 let mapPrimaryKey = '';
 let datasetId = '';
@@ -13,13 +15,15 @@ function setStyle() {
   setBtn.disabled = true;
   setBtn.innerText = "處理中";
   console.log(`mapPrimaryKey: ${mapPrimaryKey}, datasetId: ${datasetId}, styleRules: ${styleRules}`);
-  prettyPrintJSON();
   if (mapPrimaryKey == '' ||
     datasetId == '' ||
     styleRules == ''
   ) {
-    alert('請輸入 Map Primary Key、Dataset ID、Style Rules');
+    toastr.error('請輸入 Map Primary Key、Dataset ID、Style Rules');
+    setBtn.disabled = false;
+    setBtn.innerText = "設定 Style";
   } else {
+    prettyPrintJSON();
     postFeatureStatesets();
   }
 }
