@@ -27,18 +27,18 @@ function postTilesets() {
           getTilesetsOperations();
         } else {
           toastr.error('【 步驟 8 】無法成功執行「建立圖格集」，請稍後再試 ~');
-          document.getElementById('package-btn').innerText = '開始執行';
+          document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
         }
       })
       .catch((response) => {
         console.log(response);
         toastr.error('【 步驟 8 】無法成功執行「建立圖格集」，請稍後再試 ~');
-        document.getElementById('package-btn').innerText = '開始執行';
+        document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
       });
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 8 】無法成功執行「建立圖格集」，請稍後再試 ~');
-    document.getElementById('package-btn').innerText = '開始執行';
+    document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
   }
 }
 
@@ -59,17 +59,17 @@ function getTilesetsOperations() {
           const tilesetIdUrlArray = resourceLocation.replace('https://', '').replace('?api-version=2.0', '').split('/');
           document.getElementById('tilesetId').value = tilesetIdUrlArray[2];
           toastr.success('【 步驟 9 】檢查 tileset 建立狀態成功 ~');
-          document.getElementById('package-btn').innerText = '開始執行';
+          document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
         }
       })
       .catch((error) => {
         console.error(error);
         toastr.error('【 步驟 9 】無法成功執行「檢查 tileset 建立狀態」，請稍後再試 ~');
-        document.getElementById('package-btn').innerText = '開始執行';
+        document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
       })
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 9 】無法成功執行「檢查 tileset 建立狀態」，請稍後再試 ~');
-    document.getElementById('package-btn').innerText = '開始執行';
+    document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
   }
 }
