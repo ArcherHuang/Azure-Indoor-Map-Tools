@@ -8,6 +8,7 @@ let statesetId = '';
 let setBtn = '';
 
 function setStyle() {
+  document.getElementById('statesetId').value = '取得中';
   mapPrimaryKey = document.getElementById("mapPrimaryKey").value;
   datasetId = document.getElementById("datasetId").value;
   styleRules = document.getElementById("styleRules").value;
@@ -39,6 +40,7 @@ function postFeatureStatesets() {
         if (response.status === 200) {
           statesetId = response.data.statesetId;
           console.log(`statesetId: ${statesetId}`);
+          document.getElementById('statesetId').value = statesetId;
           toastr.success('Feature Statesets 設定成功 ~');
           setBtn.disabled = false;
           setBtn.innerText = "設定 Style";
