@@ -15,7 +15,7 @@ function sleep(ms) {
 
 function runPackage() {
   mapPrimaryKey = document.getElementById('map-primary-key').value;
-  document.getElementById('package-btn').innerText = '執行中';
+  document.getElementById('package-btn').innerText = '執行中 ( 執行時間約 5 分鐘 )';
   if (mapPrimaryKey == '') {
     toastr.error('【 步驟 1 】請輸入 Azure Map Primary Key ~');
   } else {
