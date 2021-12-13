@@ -35,6 +35,11 @@
           <input type="file" class="form-input" id="dwg-input">
           <label for="" class="form-label">上傳 dwg + manifest.json 的 zip 檔 ( 必填 )</label>
         </div>
+        <a href="#">
+          <button id="package-btn" onclick="runPackage()">
+            開始執行
+          </button>
+        </a>
         <div class="form-div">
           <input type="text" class="form-input" id="conversionId" value="" disabled>
           <label for="" class="form-label">Conversion ID</label>
@@ -47,11 +52,6 @@
           <input type="text" class="form-input" id="tilesetId" value="" disabled>
           <label for="" class="form-label">Tileset ID</label>
         </div>
-        <a href="#">
-          <button id="package-btn" onclick="runPackage()">
-            開始執行
-          </button>
-        </a>
       </div>
     </div>
   </body>
