@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Indoor Map</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel=stylesheet type="text/css" href="style.css">
+    <script src="runPackage.js"></script>
+    <script src="runDataset.js"></script>
+    <script src="runTileset.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <a href="https://docs.microsoft.com/zh-tw/azure/azure-maps/tutorial-creator-indoor-maps" target="_blank"
+          class="docs">
+          <h3>Use Creator to create Azure Indoor Maps</h3>
+        </a>
+        <div class="form-div">
+          <input type="text" class="form-input" id="location" value="East US" disabled>
+          <label for="" class="form-label">Azure Map Location</label>
+        </div>
+        <div class="form-div">
+          <input type="text" class="form-input" id="map-primary-key" placeholder=" ">
+          <label for="" class="form-label">Azure Map Primary Key ( 必填 )</label>
+        </div>
+        <div class="form-div">
+          <input type="file" class="form-input" id="dwg-input">
+          <label for="" class="form-label">上傳 dwg + manifest.json 的 zip 檔 ( 必填 )</label>
+        </div>
+        <div class="form-div">
+          <input type="text" class="form-input" id="conversionId" value="" disabled>
+          <label for="" class="form-label">Conversion ID</label>
+        </div>
+        <div class="form-div">
+          <input type="text" class="form-input" id="datasetId" value="" disabled>
+          <label for="" class="form-label">Dataset ID</label>
+        </div>
+        <div class="form-div">
+          <input type="text" class="form-input" id="tilesetId" value="" disabled>
+          <label for="" class="form-label">Tileset ID</label>
+        </div>
+        <a href="#">
+          <button id="package-btn" onclick="runPackage()">
+            開始執行
+          </button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-transform: capitalize;
   font-family: arial;
   transition: all .2s linear;
 }
@@ -26,8 +25,8 @@
 }
 
 .card {
-  height: 600px;
-  width: 500px;
+  height: 750px;
+  width: 560px;
   background: #fff;
   border-radius: 5px;
   padding: 20px;
@@ -43,8 +42,7 @@
 
 .card h3 {
   font-size: 35px;
-  /* padding: 20px 0; */
-  padding-bottom: 20px;
+  padding: 10px 0 50px 0;
   color: #444;
 }
 
@@ -66,13 +64,17 @@
   border-radius: 50px;
 }
 
-.form__div{
+.card .dataset-tileset-btn {
+  margin-top: 110px;
+}
+
+.form-div{
   position: relative;
   height: 48px;
   margin-bottom: 1.5rem;
 }
 
-.form__input{
+.form-input{
   position: absolute;
   top: 0;
   left: 0;
@@ -87,7 +89,7 @@
   z-index: 1;
 }
 
-.form__label{
+.form-label{
   position: absolute;
   left: 1rem;
   top: 1rem;
@@ -99,7 +101,7 @@
 }
 
 /* Input focus move up label */
-.form__input:focus + .form__label{
+.form-input:focus + .form-label{
   top: -.5rem;
   left: .8rem;
   color: var(--first-color);
@@ -109,7 +111,7 @@
 }
 
 /* Input focus sticky top label */
-.form__input:not(:placeholder-shown).form__input:not(:focus)+ .form__label{
+.form-input:not(:placeholder-shown).form-input:not(:focus)+ .form-label{
   top: -.5rem;
   left: .8rem;
   font-size: var(--small-font-size);
@@ -118,16 +120,11 @@
 }
 
 /* Input focus */
-.form__input:focus{
+.form-input:focus{
   border: 1.5px solid var(--first-color);
 }
 
-#myMap {
-  position: relative;
-  width: 100%;
-  min-width: 290px;
-  height: 100vh;
-}
-.hidden {
-  display: none;
+.docs {
+  text-decoration: none;
+  color: blue;
 }
