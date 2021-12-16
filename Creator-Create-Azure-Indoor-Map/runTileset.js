@@ -9,6 +9,10 @@ function runTileset() {
 // 8. 建立圖格集
 function postTilesets() {
   try {
+    const loading = document.createElement('i');
+    loading.className = 'fa fa-spinner fa-spin ml-10';
+    loading.id = 'loading-label';
+    document.getElementById('tilesetLbl').appendChild(loading);
     document.getElementById('tilesetId').value = '取得中 ( 執行較久 )';
     const postTilesetsUrl = `${baseUrl}/tilesets?api-version=2.0&datasetID=${datasetId}&subscription-key=${mapPrimaryKey}`;
     axios({
@@ -61,6 +65,7 @@ function getTilesetsOperations() {
         } else {
           const tilesetIdUrlArray = resourceLocation.replace('https://', '').replace('?api-version=2.0', '').split('/');
           document.getElementById('tilesetId').value = tilesetIdUrlArray[2];
+          document.getElementById('loading-label').remove();
           document.getElementById('loading').remove();
           document.getElementById('package-btn').disabled = false;
           toastr.success('【 步驟 9 】檢查 tileset 建立狀態成功 ~');

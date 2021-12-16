@@ -9,6 +9,10 @@ function runDataset() {
 // 6. 建立資料集
 function postDatasets() {
   try {
+    const loading = document.createElement('i');
+    loading.className = 'fa fa-spinner fa-spin ml-10';
+    loading.id = 'loading-label';
+    document.getElementById('datasetLbl').appendChild(loading);
     document.getElementById('datasetId').value = '取得中 ( 執行較久 )';
     const postDatasetsUrl = `${baseUrl}/datasets?api-version=2.0&conversionId=${conversionId}&subscription-key=${mapPrimaryKey}`;
     axios({
@@ -54,6 +58,7 @@ function datasetsOperations() {
           if (response.status === 200 && typeof resourceLocation !== 'undefined') {
             const datasetIDUrlArray = resourceLocation.replace('https://', '').replace('?api-version=2.0', '').split('/');
             document.getElementById('datasetId').value = datasetIDUrlArray[2];
+            document.getElementById('loading-label').remove();
             toastr.success('【 步驟 7 】檢查資料集建立狀態成功 ~');
             runTileset();
           }

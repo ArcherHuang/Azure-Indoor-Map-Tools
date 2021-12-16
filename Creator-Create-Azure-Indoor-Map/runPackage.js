@@ -9,6 +9,11 @@ let postConversionsUrl = '';
 let getConversionsOperationsUrl = '';
 let postDatasetsUrl = '';
 
+// const loading = document.createElement('i');
+// loading.className = 'fa fa-spinner fa-spin ml-10';
+// loading.id = 'loading-label';
+// document.getElementById('conversionLbl').appendChild(loading);
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -27,6 +32,10 @@ function runPackage() {
     document.getElementById('package-btn').disabled = false;
   } else {
     document.getElementById('conversionId').value = '取得中 ( 執行較久 )';
+    const loading = document.createElement('i');
+    loading.className = 'fa fa-spinner fa-spin ml-10';
+    loading.id = 'loading-label';
+    document.getElementById('conversionLbl').appendChild(loading);
     uploadDwg();
   }
 }
@@ -57,6 +66,8 @@ function uploadDwg() {
       toastr.error('【 步驟 1 】上傳 dwg + manifest.json 檔失敗 ~');
       document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
       document.getElementById('package-btn').disabled = false;
+      document.getElementById('conversionId').value = '';
+      document.getElementById('loading-label').remove();
     });
 }
 
@@ -170,6 +181,7 @@ function getConversionsOperations() {
           const conversionUrlArray = resourceLocation.replace('https://', '').replace('?api-version=2.0', '').split('/');
           postDatasetsUrl = `${baseUrl}/datasets?api-version=2.0&conversionId=${conversionUrlArray[2]}&subscription-key=${mapPrimaryKey}`;
           document.getElementById('conversionId').value = conversionUrlArray[2];
+          document.getElementById('loading-label').remove();
           toastr.success('【 步驟 5 】檢查繪圖套件轉換狀態成功 ~');
           runDataset();
         } else {
