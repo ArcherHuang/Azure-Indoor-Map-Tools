@@ -407,6 +407,10 @@ function setStyle() {
 function postFeatureStatesets() {
   const postStylesURL = `${baseUrl}/featurestatesets?api-version=2.0&datasetId=${datasetId}&subscription-key=${mapPrimaryKey}`;
   document.getElementById('statesetId').value = '取得中';
+  const loading = document.createElement('i');
+  loading.className = 'fa fa-spinner fa-spin ml-10';
+  loading.id = 'loading-label';
+  document.getElementById('statesetLbl').appendChild(loading);
   try {
     axios.post(postStylesURL, jsonStyles)
       .then(function (response) {
@@ -414,6 +418,7 @@ function postFeatureStatesets() {
         if (response.status === 200) {
           statesetId = response.data.statesetId;
           document.getElementById('statesetId').value = statesetId;
+          document.getElementById('loading-label').remove();
           toastr.success('Feature Statesets 設定成功 ~');
           setBtn.disabled = false;
           setBtn.innerText = '設定 Style';

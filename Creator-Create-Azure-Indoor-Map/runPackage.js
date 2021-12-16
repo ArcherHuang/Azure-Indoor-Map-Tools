@@ -9,11 +9,6 @@ let postConversionsUrl = '';
 let getConversionsOperationsUrl = '';
 let postDatasetsUrl = '';
 
-// const loading = document.createElement('i');
-// loading.className = 'fa fa-spinner fa-spin ml-10';
-// loading.id = 'loading-label';
-// document.getElementById('conversionLbl').appendChild(loading);
-
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
