@@ -9,8 +9,7 @@
 - [License](#license)
 
 ## Use Creator to create indoor map
-* Web UI
-  * [UI Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Creator-Create-Azure-Indoor-Map/)
+* Web UI - [UI Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Creator-Create-Azure-Indoor-Map/)
 * User Manual
 
 ## Create a feature stateset
