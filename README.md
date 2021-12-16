@@ -8,8 +8,8 @@
 * Web UI
   * 透過 JSON Textarea
     * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/Set-Azure-Indoor-Map-Style-Rules/form/)
-  * 透過  JSON Form & JSON Textarea
-    * [UI Link]()
+  * 透過  JSON Form & JSON Text
+    * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/Set-Azure-Indoor-Map-Style-Rules/form_textarea/)
 
 ## 顯示 Map 與 Indoor Map
 * Web UI
