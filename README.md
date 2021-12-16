@@ -8,3 +8,6 @@
 
 ## Display Map Web
 * https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/web
+
+## License
+* Example is licensed under the [MIT](./LICENSE) license.
