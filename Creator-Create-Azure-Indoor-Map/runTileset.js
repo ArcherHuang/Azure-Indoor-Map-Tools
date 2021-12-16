@@ -28,7 +28,6 @@ function postTilesets() {
         } else {
           toastr.error('【 步驟 8 】無法成功執行「建立圖格集」，請稍後再試 ~');
           document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
-          document.getElementById('loading').remove();
           document.getElementById('package-btn').disabled = false;
         }
       })
@@ -36,14 +35,12 @@ function postTilesets() {
         console.log(response);
         toastr.error('【 步驟 8 】無法成功執行「建立圖格集」，請稍後再試 ~');
         document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
-        document.getElementById('loading').remove();
         document.getElementById('package-btn').disabled = false;
       });
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 8 】無法成功執行「建立圖格集」，請稍後再試 ~');
     document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
-    document.getElementById('loading').remove();
     document.getElementById('package-btn').disabled = false;
   }
 }
@@ -68,7 +65,6 @@ function getTilesetsOperations() {
           document.getElementById('package-btn').disabled = false;
           toastr.success('【 步驟 9 】檢查 tileset 建立狀態成功 ~');
           document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
-          document.getElementById('loading').remove();
           document.getElementById('package-btn').disabled = false;
         }
       })
@@ -76,14 +72,12 @@ function getTilesetsOperations() {
         console.error(error);
         toastr.error('【 步驟 9 】無法成功執行「檢查 tileset 建立狀態」，請稍後再試 ~');
         document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
-        document.getElementById('loading').remove();
         document.getElementById('package-btn').disabled = false;
       })
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 9 】無法成功執行「檢查 tileset 建立狀態」，請稍後再試 ~');
     document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
-    document.getElementById('loading').remove();
     document.getElementById('package-btn').disabled = false;
   }
 }
