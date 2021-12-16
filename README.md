@@ -13,7 +13,7 @@
 
 ## 顯示 Map 與 Indoor Map
 * Web UI
-  * https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/web
+  * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/web)
 
 ## License
 * Example is licensed under the [MIT](./LICENSE) license.
