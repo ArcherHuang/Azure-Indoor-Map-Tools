@@ -15,9 +15,17 @@ function sleep(ms) {
 
 function runPackage() {
   mapPrimaryKey = document.getElementById('map-primary-key').value;
+  document.getElementById('package-btn').disabled = true;
   document.getElementById('package-btn').innerText = '執行中 ( 執行時間約 5 分鐘 )';
+  const loading = document.createElement('i');
+  loading.className = 'fa fa-spinner fa-spin mr-10';
+  loading.id = 'loading';
+  document.getElementById('package-btn').prepend(loading);
   if (mapPrimaryKey == '') {
     toastr.error('【 步驟 1 】請輸入 Azure Map Primary Key ~');
+    document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+    document.getElementById('loading').remove();
+    document.getElementById('package-btn').disabled = false;
   } else {
     document.getElementById('conversionId').value = '取得中 ( 執行較久 )';
     uploadDwg();
@@ -42,12 +50,16 @@ function uploadDwg() {
       } else {
         toastr.error('【 步驟 1 】上傳 dwg + manifest.json 檔失敗 ~');
         document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+        document.getElementById('loading').remove();
+        document.getElementById('package-btn').disabled = false;
       }
     })
     .catch((response) => {
       console.log(response);
       toastr.error('【 步驟 1 】上傳 dwg + manifest.json 檔失敗 ~');
       document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+      document.getElementById('loading').remove();
+      document.getElementById('package-btn').disabled = false;
     });
 }
 
@@ -69,11 +81,15 @@ function mapdataOperations() {
         console.error(error);
         toastr.error('【 步驟 2 】無法成功執行「檢查繪圖套件上傳狀態」，請稍後再試 ~');
         document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+        document.getElementById('loading').remove();
+        document.getElementById('package-btn').disabled = false;
       })
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 2 】無法成功執行「檢查繪圖套件上傳狀態」，請稍後再試 ~');
     document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+    document.getElementById('loading').remove();
+    document.getElementById('package-btn').disabled = false;
   }
 }
 
@@ -89,17 +105,23 @@ function mapDataMetadata() {
         } else {
           toastr.error('【 步驟 3 】無法成功執行「取出繪圖套件中繼資料」，請稍後再試 ~');
           document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+          document.getElementById('loading').remove();
+          document.getElementById('package-btn').disabled = false;
         }
       })
       .catch((error) => {
         console.error(error);
         toastr.error('【 步驟 3 】無法成功執行「取出繪圖套件中繼資料」，請稍後再試 ~');
         document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+        document.getElementById('loading').remove();
+        document.getElementById('package-btn').disabled = false;
       })
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 3 】無法成功執行「取出繪圖套件中繼資料」，請稍後再試 ~');
     document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+    document.getElementById('loading').remove();
+    document.getElementById('package-btn').disabled = false;
   }
 }
 
@@ -122,17 +144,23 @@ function postConversion() {
         } else {
           toastr.error('【 步驟 4 】無法成功執行「轉換繪圖套件」，請稍後再試 ~');
           document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+          document.getElementById('loading').remove();
+          document.getElementById('package-btn').disabled = false;
         }
       })
       .catch((response) => {
         console.log(response);
         toastr.error('【 步驟 4 】無法成功執行「轉換繪圖套件」，請稍後再試 ~');
         document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+        document.getElementById('loading').remove();
+        document.getElementById('package-btn').disabled = false;
       });
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 4 】無法成功執行「轉換繪圖套件」，請稍後再試 ~');
     document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+    document.getElementById('loading').remove();
+    document.getElementById('package-btn').disabled = false;
   }
 }
 
@@ -147,6 +175,8 @@ function getConversionsOperations() {
           if (response.data.error !== 'undefined') {
             toastr.error('【 步驟 5 】無法成功執行「檢查繪圖套件轉換狀態」，請稍後再試 ~');
             document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+            document.getElementById('loading').remove();
+            document.getElementById('package-btn').disabled = false;
           }
         } else if (response.status === 200 && typeof resourceLocation !== 'undefined') {
           const conversionUrlArray = resourceLocation.replace('https://', '').replace('?api-version=2.0', '').split('/');
@@ -163,10 +193,14 @@ function getConversionsOperations() {
         console.error(error);
         toastr.error('【 步驟 5 】無法成功執行「檢查繪圖套件轉換狀態」，請稍後再試 ~');
         document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+        document.getElementById('loading').remove();
+        document.getElementById('package-btn').disabled = false;
       })
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 5 】無法成功執行「檢查繪圖套件轉換狀態」，請稍後再試 ~');
     document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+    document.getElementById('loading').remove();
+    document.getElementById('package-btn').disabled = false;
   }
 }

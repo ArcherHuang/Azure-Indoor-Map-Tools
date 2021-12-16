@@ -26,18 +26,24 @@ function postDatasets() {
           datasetsOperations();
         } else {
           toastr.error('【 步驟 6 】無法成功執行「建立資料集」，請稍後再試 ~');
-          document.getElementById('package-btn').innerText = '開始執行';
+          document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+          document.getElementById('loading').remove();
+          document.getElementById('package-btn').disabled = false;
         }
       })
       .catch((response) => {
         console.log(response);
         toastr.error('【 步驟 6 】無法成功執行「建立資料集」，請稍後再試 ~');
-        document.getElementById('package-btn').innerText = '開始執行';
+        document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+        document.getElementById('loading').remove();
+        document.getElementById('package-btn').disabled = false;
       });
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 6 】無法成功執行「建立資料集」，請稍後再試 ~');
-    document.getElementById('package-btn').innerText = '開始執行';
+    document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+    document.getElementById('loading').remove();
+    document.getElementById('package-btn').disabled = false;
   }
 }
 
@@ -62,11 +68,15 @@ function datasetsOperations() {
       .catch((error) => {
         console.error(error);
         toastr.error('【 步驟 7 】無法成功執行「檢查資料集建立狀態」，請稍後再試 ~');
-        document.getElementById('package-btn').innerText = '開始執行';
+        document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+        document.getElementById('loading').remove();
+        document.getElementById('package-btn').disabled = false;
       })
   } catch (error) {
     console.log(error);
     toastr.error('【 步驟 7 】無法成功執行「檢查資料集建立狀態」，請稍後再試 ~');
-    document.getElementById('package-btn').innerText = '開始執行';
+    document.getElementById('package-btn').innerText = '開始執行 ( 執行時間約 5 分鐘 )';
+    document.getElementById('loading').remove();
+    document.getElementById('package-btn').disabled = false;
   }
 }
