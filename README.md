@@ -1,22 +1,22 @@
-# Azure Indoor Map 三部曲
+# Azure Indoor Map Tools
 
-## 透過 Creator 建立 Azure Indoor Map
+## Use Creator to create indoor map
 * Web UI
   * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/Use-Creator-to-create-Azure-Indoor-Map/)
-* 操作說明
+* User Manual
 
-## 設定 Feature Statesets
+## Create a feature stateset
 * Web UI
-  * 透過 JSON Textarea
+  * Use JSON Textarea
     * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/Set-Azure-Indoor-Map-Style-Rules/form/)
-  * 透過  JSON Form & JSON Text
+  * Use JSON Form & JSON Text
     * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/Set-Azure-Indoor-Map-Style-Rules/form_textarea/)
-* 操作說明
+* User Manual
 
-## 顯示 Map 與 Indoor Map
+## Display Map & Indoor Map
 * Web UI
   * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/web)
-* 操作說明
+* User Manual
 
 # Contributing
 * [Huang, Cheng-Chuan](https://github.com/ArcherHuang)
