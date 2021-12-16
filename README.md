@@ -8,7 +8,7 @@
 ## Create a feature stateset
 * Web UI
   * Use JSON Textarea
-    * [UI Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Set-Feature-Stateset/form/)
+    * [UI Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Set-Feature-Stateset/textarea/)
   * Use JSON Form & JSON Text
     * [UI Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Set-Feature-Stateset/form_textarea/)
 * User Manual
