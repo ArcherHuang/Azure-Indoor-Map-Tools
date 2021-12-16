@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure Indoor Map</title>
+  <link rel=stylesheet type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+    integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="contents">
+      <div class="content active" id="home">
+        <h3><a href="https://docs.microsoft.com/zh-tw/azure/azure-maps/tutorial-creator-indoor-maps#create-a-feature-stateset"
+            class="stateset-ref-url" target="_blank">Azure Map Style Rules</a></h3>
+        <div class="form-div">
+          <input type="text" class="form-input" id="mapPrimaryKey" placeholder=" ">
+          <label for="" class="form-label">Azure Map Primary Key ( 必填 )</label>
+        </div>
+        <div class="form-div">
+          <input type="text" class="form-input" id="datasetId" placeholder=" ">
+          <label for="" class="form-label">Dataset ID ( 必填 )</label>
+        </div>
+        <div class="tab-container">
+          <nav>
+            <input type="radio" name="tab" id="blockly-json" onclick="jsonEditorType('blockly')" checked>
+            <input type="radio" name="tab" id="write-json" onclick="jsonEditorType('write')">
+            <label class="blockly-json" for="blockly-json">
+              Rules Form
+            </label>
+            <label class="write-json" for="write-json">
+              Rules Text
+            </label>
+            <span class="tab"></span>
+          </nav>
+        </div>
+        <div class="item" id="json-form">
+          <div class="field">
+            <div class="form-div">
+              <input type="text" class="form-input keyname-input-field" id="keyname" placeholder=" ">
+              <label for="" class="form-label">Style Keyname ( 必填 )</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="form-div">
+              <select class="input-select-field form-input" id="types">
+                <option>Types of stateset</option>
+                <option>string</option>
+                <option>boolean</option>
+                <option>number</option>
+              </select>
+              <label for="" class="form-label">Types of stateset ( 必填 )</label>
+            </div>
+          </div>
+          <div id="rules"></div>
+        </div>
+        <div class="item json-editor" id="json-editor">
+          <div class="field">
+            <div class="form-div">
+              <textarea class="form-input-style" id="style-rules" placeholder=" "></textarea>
+              <label for="" class="form-label">Style Rules - JSON ( 必填 )</label>
+            </div>
+          </div>
+        </div>
+        <button onclick="clickUploadJson()">
+          匯入 JSON
+        </button>
+        <button class="ml-10" onclick="downloadJson()">
+          下載 JSON
+        </button>
+        <button id="set-style-btn" class="ml-10" onclick="setStyle()">
+          設定 Style
+        </button>
+        <input type="file"
+          name="file"
+          id="upload-json"
+          class="ml-10"
+          accept="application/json"
+          hidden
+        >
+        <div class="form-div">
+          <input type="text" class="form-input statesetId" id="statesetId" value="" disabled>
+          <label for="" class="form-label statesetId">Stateset ID</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
