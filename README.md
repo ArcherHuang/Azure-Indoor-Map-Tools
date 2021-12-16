@@ -18,6 +18,9 @@
   * [UI Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Indoor-Map)
 * User Manual
 
+## Reference
+* https://docs.microsoft.com/zh-tw/azure/azure-maps/tutorial-creator-indoor-maps
+
 ## Contributing
 * [Huang, Cheng-Chuan](https://github.com/ArcherHuang)
 
