@@ -22,6 +22,10 @@
 * Web UI - [UI Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Indoor-Map)
 * User Manual
 
+## Update a feature state
+* Web UI - [UI Link]()
+* User Manual
+
 ## Reference
 * https://docs.microsoft.com/zh-tw/azure/azure-maps/tutorial-creator-indoor-maps
 
