@@ -1,10 +1,10 @@
 # Azure Indoor Map Tools
 
 ## Contents
-- [① Use Creator to create indoor map](#use-creator-to-create-indoor-map)
-- [② Create a feature stateset](#create-a-feature-stateset)
-- [③ Display Map & Indoor Map](#display-map--indoor-map)
-- [④ Update a feature state](#update-a-feature-state)
+- [① Use Creator to create indoor map](#-use-creator-to-create-indoor-map)
+- [② Create a feature stateset](#-create-a-feature-stateset)
+- [③ Display Map & Indoor Map](#-display-map--indoor-map)
+- [④ Update a feature state](#-update-a-feature-state)
 - [Reference](#reference)
 - [Contributing](#contributing)
 - [License](#license)
