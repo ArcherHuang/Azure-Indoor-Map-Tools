@@ -18,5 +18,8 @@
   * [UI Link](https://archerhuang.github.io/Postman-for-Azure-Indoor-Map/web)
 * 操作說明
 
+# Contributing
+* [Huang, Cheng-Chuan](https://github.com/ArcherHuang)
+
 ## License
 * Example is licensed under the [MIT](./LICENSE) license.
