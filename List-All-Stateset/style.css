@@ -25,7 +25,7 @@
 }
 
 .card {
-  height: 660px;
+  height: 670px;
   width: 900px;
   background: #fff;
   border-radius: 5px;
@@ -147,7 +147,7 @@ th {
   /* margin-top: 10px; */
   margin: 10px 0 50px 0;
   overflow: auto;
-  height: 260px;
+  height: 273px;
 }
 
 .list-btn {
