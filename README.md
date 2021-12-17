@@ -6,7 +6,7 @@
   - [② Create a feature stateset](#-create-a-feature-stateset)
   - [③ Update a feature state](#-update-a-feature-state)
   - [④ Display Map & Indoor Map](#-display-map--indoor-map)
-  - [⑤ List All Stateset](#-list-all-stateset)
+  - [⑤ List All Stateset by Dataset ID](#-list-all-stateset-by-dataset-id)
 - [Reference](#reference)
 - [Contributing](#contributing)
 - [License](#license)
@@ -30,7 +30,7 @@
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Indoor-Map)
 * User Manual
 
-### ⑤ List All Stateset
+### ⑤ List All Stateset by Dataset ID
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/List-All-Stateset)
 * User Manual
 
