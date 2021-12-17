@@ -130,6 +130,7 @@ table {
   border-collapse: separate;
   border-spacing: 0;
   width: 100%;
+  border: 1px solid #000;
 }
 
 th, td {
@@ -141,13 +142,14 @@ th {
   background: #F0F0F0;
   position: sticky;
   top: 0;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
 }
 
 .tables {
-  /* margin-top: 10px; */
   margin: 10px 0 50px 0;
   overflow: auto;
-  height: 273px;
+  height: 274px;
 }
 
 .list-btn {
