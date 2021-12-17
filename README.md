@@ -22,7 +22,7 @@
 * User Manual
 
 ### ③ Update a feature state
-* Web UI - [Open Link]()
+* Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Update-Feature-State/)
 * User Manual
 
 ### ④ Display Map & Indoor Map
