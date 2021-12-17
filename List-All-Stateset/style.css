@@ -153,3 +153,11 @@ th {
 .ddd {
   margin-bottom: 30px;
 }
+
+.view-btn, .download-btn {
+  cursor: default;
+}
+
+.view-btn:hover, .download-btn:hover {
+  color: #d81616;
+}
