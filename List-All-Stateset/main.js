@@ -51,8 +51,8 @@ function list() {
       sytleHeader.innerHTML = 'Style';
 
       headerRow.appendChild(noHeader);
-      headerRow.appendChild(statesetIdHeader);
       headerRow.appendChild(datasetIdHeader);
+      headerRow.appendChild(statesetIdHeader);
       headerRow.appendChild(sytleHeader);
       thead.appendChild(headerRow);
 
@@ -85,8 +85,8 @@ function list() {
           style.innerHTML = `<div class="view-btn" onclick="openNewTab(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">View</div><div class="download-btn" onClick="downloadStyle(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'));">Download</div>`;
 
           row.appendChild(noData);
-          row.appendChild(statesetIdData);
           row.appendChild(datasetIdData);
+          row.appendChild(statesetIdData);
           row.appendChild(style);
           tbody.appendChild(row);
         }
