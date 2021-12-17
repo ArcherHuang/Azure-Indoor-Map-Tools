@@ -73,6 +73,7 @@ function list() {
 
           // Creating and adding data to second row of the table
           row = document.createElement('tr');
+          row.className = 'data-tr';
           noData = document.createElement('td');
           noData.innerHTML = count;
           statesetIdData = document.createElement('td');

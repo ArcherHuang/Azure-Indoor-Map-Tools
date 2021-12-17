@@ -161,3 +161,7 @@ th {
 .view-btn:hover, .download-btn:hover {
   color: #d81616;
 }
+
+.data-tr:hover {
+  background: #FFF8DC;
+}
