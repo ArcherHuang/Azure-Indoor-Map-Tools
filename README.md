@@ -6,10 +6,9 @@
   - [② Create a feature stateset](#-create-a-feature-stateset)
   - [③ Update a feature state](#-update-a-feature-state)
   - [④ Display Map & Indoor Map](#-display-map--indoor-map)
-  - [⑤ List All Stateset by Dataset ID](#-list-all-stateset-by-dataset-id)
+  - [⑤ List All Stateset & Delete by Dataset ID](#-list-all-stateset-by-dataset-id)
   - [⑥ List All Tilesets & Delete by Tileset ID](#)
   - [⑦ List All Datasets & Delete by Dataset ID](#)
-  - [⑧ List All Statesets & Delete by Stateset ID](#)
 - [Reference](#reference)
 - [Contributing](#contributing)
 - [License](#license)
@@ -33,8 +32,16 @@
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Indoor-Map)
 * User Manual
 
-### ⑤ List All Stateset by Dataset ID
+### ⑤ List All Stateset & Delete by Dataset ID
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/List-All-Stateset)
+* User Manual
+
+### ⑥ List All Tilesets & Delete by Tileset ID
+* Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/List-All-Tileset)
+* User Manual
+
+### ⑦ List All Datasets & Delete by Dataset ID
+* Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/List-All-Dataset)
 * User Manual
 
 ## Reference
