@@ -91,6 +91,7 @@ function list() {
         style.innerHTML = `<div class="view-btn" onclick="openNewTab(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">View</div><div class="download-btn" onClick="downloadStyle(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'));">Download</div>`;
 
         action = document.createElement('td');
+        action.id = `action-${item.statesetId}`;
         action.innerHTML = `<div class="view-btn" onclick="deleteStatesetId(JSON.parse('${JSON.stringify(item.statesetId).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">Delete</div>`;
 
         row.appendChild(noData);
@@ -127,6 +128,10 @@ function downloadStyle(style) {
 }
 
 function deleteStatesetId(statesetId) {
+  const loading = document.createElement('i');
+  loading.className = 'fa fa-spinner fa-spin ml-10';
+  loading.id = 'loading-label';
+  document.getElementById(`action-${statesetId}`).appendChild(loading);
   Swal.fire({
     title: `是否確定刪除 Stateset ID 為 ${statesetId} 的紀錄 ?`,
     footer: '刪除後無法復原',
@@ -157,6 +162,8 @@ function deleteStatesetId(statesetId) {
           console.log(error);
           toastr.error(`刪除 Stateset ID 為 ${statesetId} 失敗 ~`);
         });
+    } else {
+      document.getElementById('loading-label').remove();
     }
   })
 }
