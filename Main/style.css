@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  font-family: arial;
+  transition: all .2s linear;
+}
+
+body {
+  background: #f1f1f1;
+}
+
+.header {
+  font-size: 35px;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: bolder;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #f0f0f0;
+  padding: 45px;
+}
+
+.card {
+  height: 400px;
+  width: 300px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  padding-top: 80px;
+  margin: 0 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 5px rgba(0,0,0,.3);
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.card h3 {
+  font-size: 35px;
+  padding: 20px 0;
+  color: #444;
+}
+
+.card p {
+  font-size: 15px;
+  color: #777;
+}
+
+.card button {
+  outline: none;
+  border: none;
+  background: #333;
+  color: #fff;
+  height: 35px;
+  width: 140px;
+  margin-top: 40px;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.card button:hover {
+  letter-spacing: 2px;
+  opacity: .8;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  z-index: -1;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background: #e74c3c;
+  z-index: -2;
+  clip-path: circle(20% at 90% 10%);
+  transition: .2s;
+}
+
+.card .number {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 50px;
+  font-weight: bolder;
+  color: #fff;
+}
+
+.card:nth-child(2)::after {
+  background: #3498db;
+}
+
+.card:nth-child(3)::after {
+  background: #CC0099;
+}
+
+.card:nth-child(4)::after {
+  background: #800080;
+}
+
+.card:nth-child(5)::after {
+  background: #000080;
+}
+
+.card:nth-child(6)::after {
+  background: #CC9900;
+}
+
+.card:nth-child(7)::after {
+  background: #330000;
+}
+
+.card:nth-child(8)::after {
+  background: #2E8B57;
+}
+
+.card:hover::after {
+  clip-path: circle(100%);
+}
+
+.card:hover h3 {
+  color: #fff;
+}
+
+.card:hover p {
+  color: #f0f0f0;
+}
+
+.card:hover button {
+  color: #333;
+  background: #fff;
+}
