@@ -11,16 +11,16 @@ function listStateset() {
   if (mapPrimaryKey == '') {
     toastr.error('請輸入 Azure Map Primary Key ~');
   } else {
+    const loading = document.createElement('i');
+    loading.className = 'fa fa-spinner fa-spin mr-10';
+    loading.id = 'loading';
+    document.getElementById('listAllStatesetBtn').prepend(loading);
+    document.getElementById('listAllStatesetBtn').disabled = true;
     list();
   }
 }
 
 function list() {
-  const loading = document.createElement('i');
-  loading.className = 'fa fa-spinner fa-spin mr-10';
-  loading.id = 'loading';
-  document.getElementById('listAllStatesetBtn').prepend(loading);
-  document.getElementById('listAllStatesetBtn').disabled = true;
   document.getElementById('table') !== null ? document.getElementById('table').remove() : '';
   axios.get(`https://us.atlas.microsoft.com/featureStateSets?api-version=2.0&subscription-key=${mapPrimaryKey}`)
     .then((response) => {
@@ -128,14 +128,17 @@ function downloadStyle(style) {
 
 function deleteStatesetId(statesetId) {
   console.log(`deleteStatesetId: ${statesetId}`);
-  axios.delete(`https://us.atlas.microsoft.com/featureStateSets/${statesetId}?api-version=2.0&subscription-key=${mapPrimaryKey}`)
-    .then((response) => {
-      console.log(response);
-      toastr.success(`刪除 Stateset ID 為 ${statesetId} 成功 ~`);
-      list();
-    })
-    .catch((error) => {
-      console.log(error);
-      toastr.error(`刪除 Stateset ID 為 ${statesetId} 失敗 ~`);
-    });
+  const result = window.confirm(`確定刪除 Stateset ID 為 ${statesetId} 的紀錄 ?`);
+  if (result === true) {
+    axios.delete(`https://us.atlas.microsoft.com/featureStateSets/${statesetId}?api-version=2.0&subscription-key=${mapPrimaryKey}`)
+      .then((response) => {
+        console.log(response);
+        toastr.success(`刪除 Stateset ID 為 ${statesetId} 成功 ~`);
+        listStateset();
+      })
+      .catch((error) => {
+        console.log(error);
+        toastr.error(`刪除 Stateset ID 為 ${statesetId} 失敗 ~`);
+      });
+  }
 }
