@@ -167,3 +167,11 @@ th {
 .data-tr:hover {
   background: #FFF8DC;
 }
+
+.swal-title {
+  font-size: 26px;
+}
+
+.swal-content {
+  font-size: 20px;
+}

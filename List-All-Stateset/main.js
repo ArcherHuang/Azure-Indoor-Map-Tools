@@ -127,18 +127,36 @@ function downloadStyle(style) {
 }
 
 function deleteStatesetId(statesetId) {
-  console.log(`deleteStatesetId: ${statesetId}`);
-  const result = window.confirm(`確定刪除 Stateset ID 為 ${statesetId} 的紀錄 ?`);
-  if (result === true) {
-    axios.delete(`https://us.atlas.microsoft.com/featureStateSets/${statesetId}?api-version=2.0&subscription-key=${mapPrimaryKey}`)
-      .then((response) => {
-        console.log(response);
-        toastr.success(`刪除 Stateset ID 為 ${statesetId} 成功 ~`);
-        listStateset();
-      })
-      .catch((error) => {
-        console.log(error);
-        toastr.error(`刪除 Stateset ID 為 ${statesetId} 失敗 ~`);
-      });
-  }
+  Swal.fire({
+    title: `是否確定刪除 Stateset ID 為 ${statesetId} 的紀錄 ?`,
+    footer: '刪除後無法復原',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: '確定刪除',
+    cancelButtonText: '取消刪除',
+    customClass: {
+      title: 'swal-title',
+      footer: 'swal-content',
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios.delete(`https://us.atlas.microsoft.com/featureStateSets/${statesetId}?api-version=2.0&subscription-key=${mapPrimaryKey}`)
+        .then((response) => {
+          console.log(response);
+          Swal.fire(
+            `已刪除 Stateset ID 為 ${statesetId} 的紀錄 !`,
+            '',
+            'success'
+          ).then(() => {
+            listStateset();
+          })
+        })
+        .catch((error) => {
+          console.log(error);
+          toastr.error(`刪除 Stateset ID 為 ${statesetId} 失敗 ~`);
+        });
+    }
+  })
 }
