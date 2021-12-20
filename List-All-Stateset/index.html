@@ -19,18 +19,22 @@
   <div id="myMap" class="hidden"></div>
   <div class="container" id="container">
     <div class="card">
-        <h3>List All Statesets by Dataset ID</h3>
+        <h3>List All Statesets</h3>
+      <div class="form-div">
+        <input type="text" class="form-input" id="location" value="East US" disabled>
+        <label for="" class="form-label">Azure Map Location</label>
+      </div>
       <div class="form-div">
         <input type="text" class="form-input" id="map-primary-key" placeholder=" ">
         <label for="" class="form-label">Azure Map Primary Key ( 必填 )</label>
       </div>
       <div class="form-div">
         <input type="text" class="form-input" id="datasetId" placeholder=" ">
-        <label for="" class="form-label">Dataset ID ( 必填 )</label>
+        <label for="" class="form-label">Dataset ID ( 選填 )</label>
       </div>
       <a href="#">
         <button onclick="listStateset()" id="listAllStatesetBtn" class="list-btn">
-          取得隸屬於特定 Dataset ID 中的所有 Stateset
+          取得所有 Stateset
         </button>
       </a>
       <div class="form-div tables" id="listStatesetData"></div>

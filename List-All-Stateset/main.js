@@ -8,21 +8,19 @@ function listStateset() {
   mapPrimaryKey = document.getElementById('map-primary-key').value;
   datasetId = document.getElementById('datasetId').value;
 
-  if (mapPrimaryKey == ''
-    || datasetId == ''
-  ) {
-    toastr.error('請輸入 Azure Map Primary Key / Dataset ID ~');
+  if (mapPrimaryKey == '') {
+    toastr.error('請輸入 Azure Map Primary Key ~');
   } else {
-    const loading = document.createElement('i');
-    loading.className = 'fa fa-spinner fa-spin mr-10';
-    loading.id = 'loading';
-    document.getElementById('listAllStatesetBtn').prepend(loading);
-    document.getElementById('listAllStatesetBtn').disabled = true;
     list();
   }
 }
 
 function list() {
+  const loading = document.createElement('i');
+  loading.className = 'fa fa-spinner fa-spin mr-10';
+  loading.id = 'loading';
+  document.getElementById('listAllStatesetBtn').prepend(loading);
+  document.getElementById('listAllStatesetBtn').disabled = true;
   document.getElementById('table') !== null ? document.getElementById('table').remove() : '';
   axios.get(`https://us.atlas.microsoft.com/featureStateSets?api-version=2.0&subscription-key=${mapPrimaryKey}`)
     .then((response) => {
@@ -49,11 +47,14 @@ function list() {
       datasetIdHeader.innerHTML = 'Dataset ID';
       let sytleHeader = document.createElement('th');
       sytleHeader.innerHTML = 'Style';
+      let actionHeader = document.createElement('th');
+      actionHeader.innerHTML = 'Action';
 
       headerRow.appendChild(noHeader);
       headerRow.appendChild(datasetIdHeader);
       headerRow.appendChild(statesetIdHeader);
       headerRow.appendChild(sytleHeader);
+      headerRow.appendChild(actionHeader);
       thead.appendChild(headerRow);
 
       const statesetsList = response.data.statesets;
@@ -65,31 +66,39 @@ function list() {
       let datasetIdData = '';
       let style = '';
       let count = 0;
+      let action = '';
 
       statesetsList.forEach((item, index) => {
-        if (item.datasetIds[0] === datasetId) {
-          count += 1;
-          // console.log(`[${index}] Stateset ID: ${item.statesetId}, Dataset ID: ${item.datasetIds[0]}, Style: ${JSON.stringify(item.statesetStyle)}`);
-
-          // Creating and adding data to second row of the table
-          row = document.createElement('tr');
-          row.className = 'data-tr';
-          noData = document.createElement('td');
-          noData.innerHTML = count;
-          statesetIdData = document.createElement('td');
-          statesetIdData.innerHTML = item.statesetId;
-          datasetIdData = document.createElement('td');
-          datasetIdData.innerHTML = item.datasetIds[0];
-          style = document.createElement('td');
-
-          style.innerHTML = `<div class="view-btn" onclick="openNewTab(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">View</div><div class="download-btn" onClick="downloadStyle(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'));">Download</div>`;
-
-          row.appendChild(noData);
-          row.appendChild(datasetIdData);
-          row.appendChild(statesetIdData);
-          row.appendChild(style);
-          tbody.appendChild(row);
+        if (datasetId !== '' && item.datasetIds[0] !== datasetId) {
+          return;
         }
+
+        datasetId === '' ? count = index + 1 : count += 1;
+
+        // Creating and adding data to second row of the table
+        row = document.createElement('tr');
+        row.className = 'data-tr';
+        noData = document.createElement('td');
+        noData.innerHTML = count;
+
+        statesetIdData = document.createElement('td');
+        statesetIdData.innerHTML = item.statesetId;
+
+        datasetIdData = document.createElement('td');
+        datasetIdData.innerHTML = item.datasetIds[0];
+
+        style = document.createElement('td');
+        style.innerHTML = `<div class="view-btn" onclick="openNewTab(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">View</div><div class="download-btn" onClick="downloadStyle(JSON.parse('${JSON.stringify(item.statesetStyle).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'));">Download</div>`;
+
+        action = document.createElement('td');
+        action.innerHTML = `<div class="view-btn" onclick="deleteStatesetId(JSON.parse('${JSON.stringify(item.statesetId).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">Delete</div>`;
+
+        row.appendChild(noData);
+        row.appendChild(datasetIdData);
+        row.appendChild(statesetIdData);
+        row.appendChild(style);
+        row.appendChild(action);
+        tbody.appendChild(row);
       })
     })
     .catch((error) => {
@@ -115,4 +124,18 @@ function downloadStyle(style) {
   a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
   e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
   a.dispatchEvent(e);
+}
+
+function deleteStatesetId(statesetId) {
+  console.log(`deleteStatesetId: ${statesetId}`);
+  axios.delete(`https://us.atlas.microsoft.com/featureStateSets/${statesetId}?api-version=2.0&subscription-key=${mapPrimaryKey}`)
+    .then((response) => {
+      console.log(response);
+      toastr.success(`刪除 Stateset ID 為 ${statesetId} 成功 ~`);
+      list();
+    })
+    .catch((error) => {
+      console.log(error);
+      toastr.error(`刪除 Stateset ID 為 ${statesetId} 失敗 ~`);
+    });
 }
