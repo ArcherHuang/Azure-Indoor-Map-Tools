@@ -92,7 +92,7 @@ function list() {
 
         action = document.createElement('td');
         action.id = `action-${item.datasetId}`;
-        action.innerHTML = `<div class="view-btn" onclick="deleteStatesetId(JSON.parse('${JSON.stringify(item.datasetId).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">Delete</div>`;
+        action.innerHTML = `<div class="view-btn" onclick="deleteDatasetId(JSON.parse('${JSON.stringify(item.datasetId).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">Delete</div>`;
 
         row.appendChild(noData);
         row.appendChild(conversionIdsData);
@@ -127,7 +127,7 @@ function downloadStyle(item) {
   a.dispatchEvent(e);
 }
 
-function deleteStatesetId(datasetId) {
+function deleteDatasetId(datasetId) {
   const loading = document.createElement('i');
   loading.className = 'fa fa-spinner fa-spin ml-10';
   loading.id = 'loading-label';
