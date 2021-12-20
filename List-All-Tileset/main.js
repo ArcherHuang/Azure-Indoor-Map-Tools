@@ -91,6 +91,7 @@ function list() {
         info.innerHTML = `<div class="view-btn" onclick="openNewTab(JSON.parse('${JSON.stringify(item).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">View</div><div class="download-btn" onClick="downloadStyle(JSON.parse('${JSON.stringify(item).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'));">Download</div>`;
 
         action = document.createElement('td');
+        action.id = `action-${item.tilesetId}`;
         action.innerHTML = `<div class="view-btn" onclick="deleteStatesetId(JSON.parse('${JSON.stringify(item.tilesetId).replace(/'/g, '&apos;').replace(/"/g, '&quot;')}'))">Delete</div>`;
 
         row.appendChild(noData);
@@ -127,6 +128,10 @@ function downloadStyle(item) {
 }
 
 function deleteStatesetId(tilesetId) {
+  const loading = document.createElement('i');
+  loading.className = 'fa fa-spinner fa-spin ml-10';
+  loading.id = 'loading-label';
+  document.getElementById(`action-${tilesetId}`).appendChild(loading);
   Swal.fire({
     title: `是否確定刪除 Tileset ID 為 ${tilesetId} 的紀錄 ?`,
     footer: '刪除後無法復原',
@@ -157,6 +162,8 @@ function deleteStatesetId(tilesetId) {
           console.log(error);
           toastr.error(`刪除 Tileset ID 為 ${tilesetId} 失敗 ~`);
         });
+    } else {
+      document.getElementById('loading-label').remove();
     }
   })
 }
