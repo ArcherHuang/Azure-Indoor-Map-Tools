@@ -9,6 +9,7 @@
   - [⑤ List All Stateset & Delete by Dataset ID](#-list-all-stateset--delete-by-dataset-id)
   - [⑥ List All Tilesets & Delete by Tileset ID](#-list-all-tilesets--delete-by-tileset-id)
   - [⑦ List All Datasets & Delete by Dataset ID](#-list-all-datasets--delete-by-dataset-id)
+  - [⑧ List All Conversions & Delete by Conversion ID](#-list-all-conversions--delete-by-conversion-id)
 - [Reference](#reference)
 - [Contributing](#contributing)
 - [License](#license)
@@ -42,6 +43,10 @@
 
 ### ⑦ List All Datasets & Delete by Dataset ID
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/List-All-Dataset)
+* User Manual
+
+### ⑧ List All Conversions & Delete by Conversion ID
+* Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/List-All-Conversion)
 * User Manual
 
 ## Reference
