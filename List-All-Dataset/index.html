@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+    integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Azure Indoor Map</title>
+  <link rel=stylesheet type="text/css" href="style.css">
+</head>
+<body>
+  <div id="myMap" class="hidden"></div>
+  <div class="container" id="container">
+    <div class="card">
+        <h3>List All Datasets & Delete by Dataset ID</h3>
+      <div class="form-div">
+        <input type="text" class="form-input" id="location" value="East US" disabled>
+        <label for="" class="form-label">Azure Map Location</label>
+      </div>
+      <div class="form-div">
+        <input type="text" class="form-input" id="map-primary-key" placeholder=" ">
+        <label for="" class="form-label">Azure Map Primary Key ( 必填 )</label>
+      </div>
+      <div class="form-div">
+        <input type="text" class="form-input" id="datasetId" placeholder=" ">
+        <label for="" class="form-label">Dataset ID ( 選填 )</label>
+      </div>
+      <a href="#">
+        <button onclick="listDataset()" id="listAllDatasetBtn" class="list-btn">
+          取得所有 Dataset
+        </button>
+      </a>
+      <div class="form-div tables" id="listDatasetData"></div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
