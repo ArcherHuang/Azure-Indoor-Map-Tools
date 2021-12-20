@@ -15,6 +15,9 @@ function sleep(ms) {
 
 function runPackage() {
   mapPrimaryKey = document.getElementById('map-primary-key').value;
+  document.getElementById('conversionId').value = '';
+  document.getElementById('datasetId').value = '';
+  document.getElementById('tilesetId').value = '';
   document.getElementById('package-btn').disabled = true;
   document.getElementById('package-btn').innerText = '執行中 ( 執行時間約 5 分鐘 )';
   const loading = document.createElement('i');
