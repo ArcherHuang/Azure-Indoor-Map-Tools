@@ -180,7 +180,7 @@
         ],
         "responses": {
           "200": {
-            "description": "檢查繪圖套件轉換狀態成功，請取出 Response Headers 中 resource-location 欄位中 https://us.atlas.microsoft.com/conversions/conversion-id?api-version=2.0  的 「 conversion-id 」。"
+            "description": "當 Response body 中「 status 」的值為「 Succeeded 」代表檢查繪圖套件轉換狀態成功 ( 如果 status 為 Running 時請稍候片刻再重新執行步驟 5 )，請取出 Response Headers 中 resource-location 欄位中 https://us.atlas.microsoft.com/conversions/conversion-id?api-version=2.0  的 「 conversion-id 」。"
           }
         }
       }
