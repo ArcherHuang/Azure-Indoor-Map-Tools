@@ -3,7 +3,7 @@
 ## Contents
 - [Tools](#tools)
   - [Main Page](#main-page)
-  - [① Swagger](#-swagger)
+  - [① Use Creator to create indoor map - Swagger](#-use-creator-to-create-indoor-map---swagger)
   - [② Use Creator to create indoor map](#-use-creator-to-create-indoor-map)
   - [③ Create a feature stateset](#-create-a-feature-stateset)
   - [④ Update a feature state](#-update-a-feature-state)
