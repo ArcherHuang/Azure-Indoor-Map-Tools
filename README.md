@@ -20,7 +20,7 @@
 ### Main Page
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Main/)
 
-### ① Swagger
+### ① Use Creator to create indoor map - Swagger
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Swagger)
 
 ### ② Use Creator to create indoor map
