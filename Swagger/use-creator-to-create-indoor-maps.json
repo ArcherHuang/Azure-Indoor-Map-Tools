@@ -1,0 +1,484 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Use Creator to create Azure Indoor Map",
+    "description": "Use Creator to create indoor maps ( 請紀錄【 步驟 1 】所取得的 operation-id 、【 步驟 2 】所取得的 udid、【 步驟 4 】所取得的 operation-id、【 步驟 5 】所取得的 conversion-id、【 步驟 6 】所取得的 operationId、【 步驟 7 】所取得的 dataset-id、【 步驟 8 】所取得的 operation-id、【 步驟 9 】所取得的 tilesetId、【 步驟 10 】所取得的 statesetId )",
+    "version": "2021-12-21",
+    "license": {
+      "name": "MIT License",
+      "url": "https://github.com/ArcherHuang/Azure-Indoor-Map-Tools/blob/main/LICENSE"
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "subscription_key": {
+        "type": "apiKey",
+        "description": "Azure Maps Primary Key to authorize requests.",
+        "name": "subscription-key",
+        "in": "query"
+      }
+    }
+  },
+  "paths": {
+    "/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key=subscription-key": {
+      "post": {
+        "tags": [
+          "1. 上傳 dwg + manifest.json 的 zip 檔案"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "striobjectng",
+                "format": "binary"
+              }
+            }
+          }
+        },
+      
+        "servers": [
+          {
+            "url": "https://atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "上傳 dwg + manifest.json 成功，請取出 Response Headers 中 location 欄位中 https://us.atlas.microsoft.com/mapData/operations/operation-id?api-version=1.0 中的 「 operation-id 」。"
+          }
+        }
+      }
+    },
+    "/mapData/operations/{operation-id}?api-version=1.0&subscription-key=subscription-key": {
+      "get": {
+        "tags": [
+          "2. 檢查繪圖套件上傳狀態"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "operation-id",
+            "in": "path",
+            "description": "使用步驟 1 的 Response Headers 中所取得的 operation-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "檢查繪圖套件上傳狀態成功，請取出 Response Headers 中 location 欄位中 https://us.atlas.microsoft.com/mapData/metadata/udid?api-version=1.0 中的 「 udid 」。"
+          }
+        }
+      }
+    },
+    "/mapData/metadata/{udid}?api-version=1.0&subscription-key=subscription-key": {
+      "get": {
+        "tags": [
+          "3. 取出繪圖套件中繼資料 ( 選擇性 )"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "udid",
+            "in": "path",
+            "description": "使用步驟 2 的 Response Headers 中所取得的 udid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "取出繪圖套件中繼資料成功"
+          }
+        }
+      }
+    },
+    "/conversions?api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0&subscription-key=subscription-key": {
+      "post": {
+        "tags": [
+          "4. 轉換繪圖套件"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "udid",
+            "in": "path",
+            "description": "使用步驟 2 的 Response Headers 中所取得的 udid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "轉換繪圖套件成功，請取出 Response Headers 中 operation-location 欄位中 https://us.atlas.microsoft.com/conversions/operations/operation-id?api-version=2.0 的 「 operation-id 」。"
+          }
+        }
+      }
+    },
+    "/conversions/operations/{operation-id}?api-version=2.0&subscription-key=subscription-key": {
+      "get": {
+        "tags": [
+          "5. 檢查繪圖套件轉換狀態"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "operation-id",
+            "in": "path",
+            "description": "使用步驟 4 所取得的 operation-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "檢查繪圖套件轉換狀態成功，請取出 Response Headers 中 resource-location 欄位中 https://us.atlas.microsoft.com/conversions/conversion-id?api-version=2.0  的 「 conversion-id 」。"
+          }
+        }
+      }
+    },
+    "/datasets?api-version=2.0&conversionId=conversionId&subscription-key=subscription-key": {
+      "post": {
+        "tags": [
+          "6. 建立資料集"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "conversionId",
+            "in": "query",
+            "description": "使用步驟 5 所取得的 conversion-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "建立資料集成功，請取出 Response Headers 中 operation-location 欄位中 https://us.atlas.microsoft.com/datasets/operations/operation-id?api-version=2.0 的 「 operation-id 」。"
+          }
+        }
+      }
+    },
+    "/datasets/operations/{operation-id}?api-version=2.0&subscription-key=subscription-key": {
+      "get": {
+        "tags": [
+          "7. 檢查資料集建立狀態  ( 會執行一段時間 )"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "operation-id",
+            "in": "path",
+            "description": "使用步驟 6 所取得的 operation-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "當 Response body 中「 status 」的值為「 Succeeded 」代表檢查資料集建立狀態成功 ( 如果 status 為 Running 時請稍候片刻再重新執行步驟 7 )，請取出 Response Headers 中 resource-location 欄位中 https://us.atlas.microsoft.com/datasets/dataset-id?api-version=2.0 的 「 dataset-id 」。"
+          }
+        }
+      }
+    },
+    "/tilesets?api-version=2.0&datasetID=datasetID&subscription-key=subscription-key": {
+      "post": {
+        "tags": [
+          "8. 建立圖格集"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "datasetID",
+            "in": "query",
+            "description": "使用步驟 7 所取得的 dataset-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "建立圖格集成功，請取出 Response Headers 中 operation-location 欄位中 https://us.atlas.microsoft.com/tilesets/operations/operation-id?api-version=2.0 的 「 operation-id 」。"
+          }
+        }
+      }
+    },
+    "/tilesets/operations/{operation-id}?api-version=2.0&subscription-key=subscription-key": {
+      "get": {
+        "tags": [
+          "9. 檢查 tileset 建立狀態 ( 會執行一段時間 )"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "operation-id",
+            "in": "path",
+            "description": "使用步驟 8 所取得的 operation-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "當 Response body 中「 status 」的值為「 Succeeded 」代表執行完成且檢查 tileset 建立狀態成功 ( 如果 status 為 Running 時請稍候片刻再重新執行步驟 9 )，請取出 Response Headers 中 resource-location 欄位中 https://us.atlas.microsoft.com/tilesets/tileset-id?api-version=2.0 的 「 tileset-id 」。"
+          }
+        }
+      }
+    },
+    "/wfs/datasets/{dataset-id}/collections?api-version=2.0&subscription-key=subscription-key": {
+      "get": {
+        "tags": [
+          "10. 查詢資料集中的所有集合"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "dataset-id",
+            "in": "path",
+            "description": "使用步驟 7 所取得的 dataset-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "查詢資料集中的所有集合成功。"
+          }
+        }
+      }
+    },
+    "/wfs/datasets/{dataset-id}/collections/unit/items?api-version=2.0&subscription-key=subscription-key": {
+      "get": {
+        "tags": [
+          "11. 查詢資料集中的單位集合"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "dataset-id",
+            "in": "path",
+            "description": "使用步驟 7 所取得的 dataset-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "查詢資料集中的單位集合成功。"
+          }
+        }
+      }
+    },
+    "/featurestatesets?api-version=2.0&datasetId=datasetId&subscription-key=subscription-key": {
+      "post": {
+        "tags": [
+          "12. 建立功能狀態集"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A JSON object containing feature statesets information",
+                "required": true
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "datasetId",
+            "in": "query",
+            "description": "使用步驟 7 所取得的 dataset-id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "建立功能狀態集成功，請取出 Response body 中 「 statesetId 」。"
+          }
+        }
+      }
+    },
+    "/featurestatesets/{stateset-id}/featureStates/{feature-id}?api-version=2.0&subscription-key=subscription-key": {
+      "put": {
+        "tags": [
+          "13. 更新功能狀態"
+        ],
+        "security": [
+          {
+            "subscription_key": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "A JSON object containing feature statesets information",
+                "required": true
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "stateset-id",
+            "in": "path",
+            "description": "使用步驟 12 所取得的 statesetId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "feature-id",
+            "in": "path",
+            "description": "設定特定 feature-id 的狀態",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "servers": [
+          {
+            "url": "https://us.atlas.microsoft.com/"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "更新功能狀態成功。"
+          }
+        }
+      }
+    }
+  }
+}
