@@ -11,6 +11,7 @@
   - [⑥ List All Tilesets & Delete by Tileset ID](#-list-all-tilesets--delete-by-tileset-id)
   - [⑦ List All Datasets & Delete by Dataset ID](#-list-all-datasets--delete-by-dataset-id)
   - [⑧ List All Conversions & Delete by Conversion ID](#-list-all-conversions--delete-by-conversion-id)
+  - [⑨ Swagger](#-swagger)
 - [Reference](#reference)
 - [Contributing](#contributing)
 - [License](#license)
@@ -44,6 +45,9 @@
 
 ### ⑧ List All Conversions & Delete by Conversion ID
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/List-All-Conversion)
+
+### ⑨ Swagger
+* Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Swagger)
 
 ## Reference
 * https://docs.microsoft.com/zh-tw/azure/azure-maps/tutorial-creator-indoor-maps
