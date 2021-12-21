@@ -135,7 +135,7 @@ body {
 }
 
 .card:nth-child(9)::after {
-  background: #A52A2A;
+  background: #6600FF;
 }
 
 .card:hover::after {
