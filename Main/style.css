@@ -134,6 +134,10 @@ body {
   background: #2E8B57;
 }
 
+.card:nth-child(9)::after {
+  background: #A52A2A;
+}
+
 .card:hover::after {
   clip-path: circle(100%);
 }
