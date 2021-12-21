@@ -4,7 +4,7 @@
 - [Tools](#tools)
   - [Main Page](#main-page)
   - [① Use Creator to create indoor map - Swagger](#-use-creator-to-create-indoor-map---swagger)
-  - [② Use Creator to create indoor map](#-use-creator-to-create-indoor-map)
+  - [② Use Creator to create indoor map - Custom UI](#-use-creator-to-create-indoor-map---custom-ui)
   - [③ Create a feature stateset](#-create-a-feature-stateset)
   - [④ Update a feature state](#-update-a-feature-state)
   - [⑤ Display Map & Indoor Map](#-display-map--indoor-map)
