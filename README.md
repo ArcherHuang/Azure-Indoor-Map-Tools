@@ -23,7 +23,7 @@
 ### ① Use Creator to create indoor map - Swagger
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Swagger)
 
-### ② Use Creator to create indoor map
+### ② Use Creator to create indoor map - Custom UI
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Creator-Create-Azure-Indoor-Map/)
 
 ### ③ Create a feature stateset
