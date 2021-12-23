@@ -4,7 +4,7 @@
 - [Tools](#tools)
   - [Main Page](#main-page)
   - [① Use Creator to create indoor map - Swagger](#-use-creator-to-create-indoor-map---swagger)
-  - [② Use Creator to create indoor map - Custom UI](#-use-creator-to-create-indoor-map---custom-ui)
+  - [② Use Creator to create indoor map - Use Web](#-use-creator-to-create-indoor-map---custom-ui)
   - [③ Create a feature stateset](#-create-a-feature-stateset)
   - [④ Update a feature state](#-update-a-feature-state)
   - [⑤ Display Map & Indoor Map](#-display-map--indoor-map)
@@ -20,10 +20,10 @@
 ### Main Page
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Main/)
 
-### ① Use Creator to create indoor map - Swagger
+### ① Use Creator to create indoor map - Use Swagger
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Swagger)
 
-### ② Use Creator to create indoor map - Custom UI
+### ② Use Creator to create indoor map - Use Web
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Creator-Create-Azure-Indoor-Map/)
 
 ### ③ Create a feature stateset
