@@ -26,6 +26,8 @@
 </p>
 </details>
 
+---
+
 ### ① Use Creator to create indoor map - Use Swagger
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Swagger)
 
