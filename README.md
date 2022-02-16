@@ -22,20 +22,12 @@
 <p>
   
 [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Main/)
-<a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a>
   
 </p>
 </details>
 
 ### ① Use Creator to create indoor map - Use Swagger
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Swagger)
-<details><summary>Web UI</summary>
-<p>
-  
-[Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Swagger)
-  
-</p>
-</details>
 
 ### ② Use Creator to create indoor map - Use Web
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Creator-Create-Azure-Indoor-Map/)
