@@ -22,6 +22,7 @@
 <p>
   
 [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Main/)
+<a href="https://www.w3schools.com" target="_blank">Visit W3Schools</a>
   
 </p>
 </details>
