@@ -19,11 +19,9 @@
 ## Tools
 ### Main Page
 * Web UI - [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Main/)
-* <details><summary>Web UI</summary>
+<details><summary>Web UI</summary>
 <p>
-
 [Open Link](https://archerhuang.github.io/Azure-Indoor-Map-Tools/Main/)
-
 </p>
 </details>
 
